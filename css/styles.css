@@ -1,0 +1,163 @@
+/* 박스 */
+.box{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 컬러 */
+#porori{
+    background: #e399c0;
+}
+.ear, .face{
+    background: #e399c0;
+}
+.hole, .ip{
+    background: #fff;
+}
+.co, .muni>div, .nun{
+    background: #000;
+}
+
+/* 모양 */
+#porori, .face{
+    width: 300px;
+    height: 380px;
+    border-radius: 100%;
+}
+#porori{
+    position: relative;
+    cursor: pointer;
+}
+.face{
+    overflow: hidden;
+    position: absolute;
+    border: 3px solid #000;
+
+    transition: 3s ease;
+}
+.ear{
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    position: absolute;
+    border: 3px solid #000;
+    overflow: hidden;
+    top: -30px;
+
+    transition: 3s ease;
+}
+.hole{
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    position: absolute;
+    border: 3px solid #000;
+    top: 15px;
+}
+.ear.lt{
+    left: 30px;
+}
+.ear.rt{
+    right: 30px;
+}
+.ear.lt>.hole{
+    left: -30px;
+}
+.ear.rt>.hole{
+    right: -30px;
+}
+.nun{
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    position: absolute;
+    top: 40%;
+}
+.nun.lt{
+    left: 15%;
+}
+.nun.rt{
+    right: 15%;
+}
+.ip{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    position: absolute;
+    top: 55%;
+}
+.co{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -50%);
+}
+.muni{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.muni>div{
+    width: 15px;
+    height: 30px;
+    margin: 0 5px;
+    border-radius: 0 0 100% 100%;
+}
+
+/* 트랜지션을 활용한 애니메이션 */
+#porori{
+    transition: 1s ease-in-out;
+}
+#porori:hover{
+    transform: rotate(30deg);
+}
+.nun{
+    transition: 0.3s ease;
+}
+#porori.on .nun{
+    height: 8px;
+    border-radius: 0 0 8px 8px;
+}
+#porori.on .nun.lt{
+    transform: rotate(15deg);
+}
+#porori.on .nun.rt{
+    transform: rotate(-15deg);
+}
+
+/* 때릴거야? */
+#porori:hover>h1{
+    opacity: 1;
+}
+#porori>h1{
+    position: absolute;
+    top: 1em;
+    left: -3.5em;
+    font-size: 36px;
+    font-weight: 700;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+/* 키프레임을 활용한 애니메이션 */
+/* @keyframes king {
+    from{
+        transform: rotate(30deg);
+    }
+    to{
+        transform: rotate(-30deg);
+    }
+}
+#porori:hover{
+    transition: 1s ease-in-out;
+    transform: rotate(30deg);
+    animation: king 2s infinite alternate ease-in-out 1s;
+} */
+#porori.on .face, #porori.on .ear{
+    background: red;
+}
